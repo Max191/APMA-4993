@@ -4,7 +4,7 @@
 import pandas as pd
 import numpy as np
 
-filename = "C:/Users/justi/PycharmProjects/COVID-19/Scripts after 12-14/FCA_Case_Line_Data_Dates_Sorted.csv"
+filename = "csv/FCA_Case_Line_Data_Dates_Sorted.csv"
 df = pd.read_csv(filename)
 
 dates = df['Case_Date']

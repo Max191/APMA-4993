@@ -4,8 +4,8 @@
 from matplotlib import pyplot as plt
 import pandas as pd
 
-mobility_path = "C:/Users/justi/Documents/Covid research/Mobility Data/Florida Mobility Data 12-14.xlsx"
-infection_path = "C:/Users/justi/PycharmProjects/COVID-19/Scripts after 12-14/Infection_Rate_Florida_All.csv"
+mobility_path = "xlsx/Florida Mobility Data 12-14.xlsx"
+infection_path = "csv/Infection_Rate_Florida_All.csv"
 
 df_mobility = pd.read_excel(mobility_path)
 df_infection_rate = pd.read_csv(infection_path)
