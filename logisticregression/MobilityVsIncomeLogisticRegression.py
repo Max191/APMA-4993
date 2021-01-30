@@ -14,6 +14,7 @@ from scipy.special import expit
 data_path = "Mobility_Vs_Income_All.csv"
 df_data = pd.read_csv(data_path)
 
+# header names
 county = 'sub_region_2'
 retail = 'retail_and_recreation_percent_change_from_baseline'
 grocery = 'grocery_and_pharmacy_percent_change_from_baseline'
@@ -27,11 +28,19 @@ header_list = [retail, grocery, parks, transit, workplaces, residential]
 df_income_zscore = zscore(df_data[income])
 x = df_income_zscore.reshape(-1, 1)
 
+# variable for tracking figure index
 index = 0
+# range to test number of clusters
 kmeans_range = range(1, 20)
+# for debugging
 header_list_accurate = []
 
 
+# generates a k-mean graph of distortion vs. number of clusters and returns the kmean model with the optimal number of clusters,
+# seen from the elbow method
+# also creates a logistic model with optimal number of clusters, classifies the mobilities into said clusters, and then fits the 
+# the classifications to income with the logistic model. Prints out the number of clusters used, model accuracy, and cluster centers
+# to the console.
 def graph_kmeans(df, message):
     kmean = KMeans()
     visualizer = KElbowVisualizer(kmean, k=(min(kmeans_range), max(kmeans_range)),
